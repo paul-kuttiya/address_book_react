@@ -11,12 +11,7 @@ class App extends React.Component {
     
     this.state = {
       modal: false,
-      staffs: {
-        staff1: {
-          title: "title",
-          description: "description hahaha"
-        }
-      },
+      staffs: {}
     }
     
     this.toggleModal = this.toggleModal.bind(this);
@@ -27,7 +22,8 @@ class App extends React.Component {
   }
   
   componentDidMount() {
-    const staffs = JSON.parse(localStorage.getItem("staffs"));
+    const storage = localStorage.getItem("staffs") || JSON.stringify(this.state.staffs);
+    const staffs = JSON.parse(storage);
 
     this.setState({staffs: staffs});
   }

@@ -60,8 +60,6 @@ const config = {
   ]
 };
 
-module.exports = config;
-
 if (process.env.NODE_ENV === 'production') {
   config.plugins.push(
     new webpack.DefinePlugin({
@@ -72,3 +70,5 @@ if (process.env.NODE_ENV === 'production') {
     new webpack.optimize.UglifyJsPlugin()
   )
 }
+
+module.exports = config;
